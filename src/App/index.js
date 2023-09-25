@@ -10,29 +10,34 @@ import { TodoSearch } from '../TodoSearch';
 
 
 function App() {
-  const [state, setstate] = useState('');
+  const [state, setstate] = useState('estado compartido');
   return (
     <React.Fragment>
-    <TodoHeader />
-    <TodoList />
-    </React.Fragment>
-  )
-}
-
-function TodoHeader() {
-  return (
-    <React.Fragment>
+    <TodoHeader>
       <TodoCounter />
       <TodoSearch />
+    </TodoHeader>
+
+    <TodoList>
+      <TodoItem state={state} />
+    </TodoList>
     </React.Fragment>
   )
 }
 
-function TodoList() {
+function TodoHeader({ children }) {
   return (
-    <>
-    <TodoItem />
-    </>
+    <header>
+      {children}
+    </header>
+  )
+}
+
+function TodoList({ children }) {
+  return (
+    <section className='TodoList-container'>
+      {children}
+    </section>
   )
 }
 
@@ -52,10 +57,10 @@ function TodoSearch() {
   )
 }
 
-function TodoItem() {
+function TodoItem({ state }) {
   return (
     <>
-    <p>TodoItem</p>
+    <p>TodoItem: {state}</p>
     </>
   )
 }
