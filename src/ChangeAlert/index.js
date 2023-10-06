@@ -1,8 +1,13 @@
 import React from "react";
+import { withStorageListener } from './withStoragelistener'
 
-function ChangeAlert() {
-  return <div>Hubo Cambios?</div>;
+function ChangeAlert({ show, toggleShow }) {
+  if (show) {
+    return <div>Hubo Cambios?</div>;
+  }
 
 }
 
-export default ChangeAlert;
+const ChangeAlertWithStorageListener = withStorageAlert(changeAlert)
+
+export  {ChangeAlertWithStorageListener};
