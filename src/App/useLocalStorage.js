@@ -39,7 +39,7 @@ function useLocalStorage(itemName, initialValue) {
     }
   };
 
-  const sincronize = () => {
+  const sincronizeItem = () => {
     setLoading(true);
     setSincronizeditem(false);
   }
@@ -49,6 +49,7 @@ function useLocalStorage(itemName, initialValue) {
     saveItem,
     loading,
     error,
+    sincronizeItem,
   };
 }
 
